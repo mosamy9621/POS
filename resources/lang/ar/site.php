@@ -2,7 +2,7 @@
 
 return[
         'dashboard'=>'الرئيسية',
-    'orginial_lang'=>'اللغة',
+    'original_lang'=>'اللغة',
     'users'=>'المشرفين',
     'name'=>'الاسم الكامل',
     'email'=>'البريد الإلكتروني',
@@ -40,25 +40,39 @@ return[
     'products_link'=>'المنتجات المرتبطة',
     'product'=>'المنتج',
     'total'=>'المجموع',
-
+    'show_order'=>'عرض الطلبات',
     'address'=>'العنوان',
     'phone'=>'رقم الهاتف',
     'clients'=>'العملاء',
     'client'=>'العميل',
+    'client_name'=>'اسم العميل',
+
+    'created_at'=>'تم إضافته فى تارخ',
+
     'order'=>'الطلب',
     'orders'=>'الطلبات',
     'quantity'=>'الكمية',
     'price'=>'السعر',
     'add_order'=>'اضف طلب',
+    'clients_order'=>'طلبات العملاء',
+
+    'total_quantity'=>'مجموع المنتجات',
+    'total_price'=>'المبلغ بالكامل',
 
     'no_category_found'=>'لا يوجد اى بيانات خاصة بالأقسام',
 
+    'search_with_date'=>'البحث بالتاريخ',
 
 
-
-
-
-
+    'to'=>'إلي تاريخ',
+    'from'=>'من تاريخ',
+    'product_show' =>'عرض المنتجات',
+    'print'=>'طباعة',
+    'show_all'=>'إظهار كل البيانات',
+    'edit_order'=>'تعديل الطلب',
+    'more_info'=>'أضغط للمزيد',
+    'orders_no'=>'عدد الطلبات',
+    'graph'=>'الرسم البياني',
 ];
 
 ?>

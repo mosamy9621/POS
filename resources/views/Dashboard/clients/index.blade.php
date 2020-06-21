@@ -50,6 +50,7 @@
                             <th>@lang('site.address')</th>
                             <th>@lang('site.phone')</th>
                             <th>@lang('site.orders')</th>
+                            <th>@lang('site.orders_no')</th>
 
                             <th>@lang('site.action')</th>
 
@@ -63,27 +64,38 @@
                                 <td>{{$client->address}}</td>
                                 <td>{{$client->phone}}</td>
 
-                                @if(auth()->user()->hasPermission('create-orders'))
-                                    <td><a href="{{route('dashboard.clients.orders.create',$client)}}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> @lang('site.add_order')</a> </td>
-                                @else
-                                    <td><a href="" class="btn btn-primary btn-sm disabled"><i class="fa fa-plus"></i> @lang('site.add_order')</a> </td>
-                                @endif
+                                <td class="" >
+                                    @if(auth()->user()->hasPermission('create-orders'))
+                                        <a href="{{route('dashboard.clients.orders.create',$client)}}" class="my-1 btn btn-primary btn-sm"><i class="fa fa-plus"></i> @lang('site.add_order')</a>
+                                        @if($client->orders->count()>0)
+
+                                            <a href="{{route('dashboard.clients.orders.show',[$client,$client->orders->first->id])}}" class="my-1  btn btn-primary btn-sm"><i class="fa fa-info"></i> @lang('site.show_order')</a>
+                                        @else
+                                            <a href="" class="my-1 btn btn-primary btn-sm disabled"><i class="fa fa-info"></i> @lang('site.show_order')</a>
+                                        @endif
+
+                                    @else
+
+                                        <a href="" class="my-1 btn btn-primary btn-sm disabled"><i class="fa fa-plus"></i> @lang('site.add_order')</a>
+                                    @endif
+                                </td>
+                                <td>{{$client->orders()->count()}}</td>
                                     <td>
                                     @can('EditClients',$client)
 
-                                        <a class="btn btn-primary" href="{{route('dashboard.clients.edit',$client)}}"> <i class="fa fa-edit"></i>@lang('site.edit')</a>
+                                        <a class="btn btn-primary btn-sm my-1" href="{{route('dashboard.clients.edit',$client)}}"> <i class="fa fa-edit"></i>@lang('site.edit')</a>
                                     @else
-                                        <a class="btn btn-primary disabled" >@lang('site.edit')</a>
+                                        <a class="btn btn-primary btn-sm my-1 disabled" >@lang('site.edit')</a>
                                     @endcan
                                     @can('DeleteClients',$client)
                                     <form id="delete_submit" style="display: inline-block" action="{{route('dashboard.clients.destroy',$client)}}" method="POST" >
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" onclick="deleteConfirm(event)"><i class="fa fa-trash"></i> @lang('site.delete')</button>
+                                        <button type="submit" class="btn btn-sm my-1 btn-danger" onclick="deleteConfirm(event)"><i class="fa fa-trash"></i> @lang('site.delete')</button>
 
                                     </form>
                                      @else
-                                            <button type="submit" class="btn btn-danger disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>
+                                            <button type="submit" class="btn btn-sm my-1 btn-danger disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>
 
                                         @endcan
 
@@ -106,6 +118,9 @@
     </div>
     <script src="{{asset('js/noty.js')}}" type="text/javascript"></script>
     <script>
+        var sidebar =  document.createAttribute('class');
+        sidebar.value='container-fluid sidebar-mini layout-fixed sidebar-collapse';
+        document.body.setAttributeNode(sidebar);
         function  deleteConfirm(event) {
             event.preventDefault();
             var element = document.getElementById('delete_submit');

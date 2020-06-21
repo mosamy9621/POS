@@ -88,33 +88,45 @@
                                     <div class="card-header">
                                         <h5> @lang('site.orders')</h5>
                                     </div>
-                                        <div  class="card">
-                                            <div  class="card-body">
-                                                <form action="{{route('dashboard.clients.orders.store',$client)}}" method="post">
-                                                @csrf
-                                                    <table class="table text-sm table-valign-middle " style="text-align: center">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>@lang('site.product')</th>
-                                                            <th>@lang('site.quantity')</th>
-                                                            <th>@lang('site.price')</th>
-
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody class="table text-sm table-valign-middle table-active"  id="orders-list">
-
-                                                    </tbody>
-                                                </table>
-                                                <h3 >@lang('site.total'): <span id="total-price" >0</span></h3>
-                                                    <button type="submit" id="add_order" class="btn btn-info disabled"><i class="fa fa-plus"></i> @lang('site.add_order')</button>
-                                                </form>
+                                    <div  class="card-body">
+                                        <form action="{{route('dashboard.clients.orders.store',$client)}}" method="post">
+                                            @csrf
+                                            @error('product')
+                                            <div class="alert alert-danger alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                <h5><i class="icon fas fa-ban"></i> @lang('site.alert')!</h5>
+                                                <p>*{{$message}}</p>
                                             </div>
-                                        </div>
+                                            @enderror
+                                            @error('quantities')
+                                            <div class="alert alert-danger alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                <h5><i class="icon fas fa-ban"></i> @lang('site.alert')!</h5>
+                                                <p>*{{$message}}</p>
+                                            </div>
+                                            @enderror
+                                            <table class="table text-sm table-valign-middle " style="text-align: center">
+                                                <thead>
+                                                <tr>
+                                                    <th>@lang('site.product')</th>
+                                                    <th>@lang('site.quantity')</th>
+                                                    <th>@lang('site.price')</th>
+                                                    <th>@lang('site.delete')</th>
+
+
+                                                </tr>
+                                                </thead>
+                                                <tbody class="table text-sm table-valign-middle "  id="orders-list">
+
+                                                </tbody>
+                                            </table>
+                                            <h3 >@lang('site.total'): <span id="total-price" >0</span></h3>
+                                            <button type="submit" id="add_order" class="btn btn-info disabled"><i class="fa fa-plus"></i> @lang('site.add_order')</button>
+                                        </form>
+                                    </div>
                                     </div>
 
                             </div>
-
-
 
                         </div>
                     </div>

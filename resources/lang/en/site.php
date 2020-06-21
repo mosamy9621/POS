@@ -2,13 +2,13 @@
 
 return[
     'dashboard'=>'Index',
-    'orginial_lang'=>'Language',
+    'original_lang'=>'Language',
     'users'=>'Supervisors' ,
     'name'=>'Full name',
     'email'=>'E-mail',
     'action'=>'Action',
     'edit'=>'Edit',
-    'edit'=>'Update',
+    'update'=>'Edit',
     'no_info_found'=>'No data has been found',
     'create'=>'Create',
     'delete'=>'Delete',
@@ -39,17 +39,34 @@ return[
     'phone'=>'Phone',
     'clients'=>'Cleints',
     'client'=>'Client',
+    'client_name'=>'Client Name',
+    'created_at'=>'Created at',
     'order'=>'Order',
     'orders'=>'Orders',
     'product'=>'Product',
     'total'=>'Total',
-
+    'price'=>'Price',
+    'quantity'=>'Quantity',
+    'products_no'=>'Number Of Products',
+    'products_link'=>'Attached Products',
     'add_order'=>'Add order',
-
-
-
-
+    'show_order'=>'Show order',
+    'total_quantity'=>'Total Quantity',
+    'total_price'=>'Total Price',
+    'clients_order'=>'Client\'s orders',
+    'search_with_date'=>'Search With Date',
+    'to'=>'To Date',
+    'from'=>'From Date',
     'permissions'=>'Permissions',
+    'product_show' =>'The Ordered Products',
+    'print'=>'Print',
+    'show_all'=>'Show All Results',
+    'edit_order'=>'Edit Order',
+    'more_info'=>'More Info',
+    'orders_no'=>'Number Of Orders',
+    'graph'=>'Graph',
+
+
 
 
 

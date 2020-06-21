@@ -17,6 +17,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
 
                 Route::resource('clients','ClientController');
                 Route::resource('clients.orders','Client\OrderController');
+                Route::get('clients/{client}/orders/{order}/product','Client\OrderController@product')
+                    ->name('clients.orders.product');
+
 
 
 

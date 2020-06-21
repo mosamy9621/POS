@@ -117,6 +117,8 @@ return [
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
+    'stock_valid'              => 'Invalid Stock Quantity',
+
 
     /*
     |--------------------------------------------------------------------------
@@ -150,7 +152,10 @@ return [
         'name'=>'Full Name',
         'password' =>'Password',
         'email'=>'E-mail',
-        'password_confirmation'=>'Password Confirmation'
+        'password_confirmation'=>'Password Confirmation',
+        'to'          =>'this date ',
+        'from'          =>'this date',
+
     ],
 
 ];

@@ -27,7 +27,6 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('order_id');
             $table->foreignId('product_id');
-            $table->timestamps();
             $table->unsignedBigInteger('quantity');
             $table->decimal('price','8','2');
 
