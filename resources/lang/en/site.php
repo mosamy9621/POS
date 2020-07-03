@@ -65,6 +65,8 @@ return[
     'more_info'=>'More Info',
     'orders_no'=>'Number Of Orders',
     'graph'=>'Graph',
+    'site_name'=>'Point Of Sale'
+
 
 
 
